@@ -1,5 +1,7 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+
 $data = file_get_contents('php://input'); 
 
 base64_to_jpeg($data,'test.jpg'); 

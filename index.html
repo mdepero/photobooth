@@ -14,7 +14,7 @@
 			function take_snapshot() {
 				Webcam.snap(function(data_uri) {
 				//document.getElementById('snap').style.backgroundImage = "url('"+data_uri+"')";
-				document.getElementById('snap').innerHTML = "<img src='"+data_uri+"' style='height:100%;width:100%;'>";
+				document.getElementById('snap').style.backgroundImage = "url("+data_uri+")";
 			});
 			}
 			function ShowCam(){

@@ -6,16 +6,28 @@
 		<script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script type="text/javascript" src="webcam.js"></script>
+		<script src="html2canvas.js"></script>
+
 		<script language="JavaScript">
 		
 		var remoteServerLocation = 'http://jshalk.com/photobooth/upload.php';
 		
 		
 			function take_snapshot() {
-				Webcam.snap(function(data_uri) {
+				//Webcam.snap(function(data_uri) {
 				//document.getElementById('snap').style.backgroundImage = "url('"+data_uri+"')";
-				document.getElementById('snap').style.backgroundImage = "url("+data_uri+")";
-			});
+				//document.getElementById('snap').style.backgroundImage = "url("+data_uri+")";
+				//});
+				html2canvas($("body"), {
+		            onrendered: function(canvas) {
+		                theCanvas = canvas;
+
+
+		                canvas.toBlob(function(blob) {
+		                    saveAs(blob, "Dashboard.png"); 
+		                });
+		            }
+		        });
 			}
 			function ShowCam(){
 				Webcam.set({

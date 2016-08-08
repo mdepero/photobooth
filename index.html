@@ -21,8 +21,8 @@
 				alert(window.screen.availWidth);
 				alert(window.screen.availHeight);
 				Webcam.set({
-				width: window.screen.availWidth,
-				height: window.screen.availHeight,
+				width: $(screen).width(),
+				height: $(screen).height(),
 				image_format: 'jpeg',
 				jpeg_quality: 100
 			});

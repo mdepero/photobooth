@@ -2,8 +2,9 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Cam Snap</title>
+		<title>Smucker's Surfboard Photobooth</title>
 		<script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<script type="text/javascript" src="webcam.js"></script>
 		<script language="JavaScript">
 		
@@ -12,13 +13,16 @@
 		
 			function take_snapshot() {
 				Webcam.snap(function(data_uri) {
-				document.getElementById('results').innerHTML = '<img id="base64image" src="'+data_uri+'"/><button onclick="SaveSnap();">Save Snap</button>';
+				//document.getElementById('snap').style.backgroundImage = "url('"+data_uri+"')";
+				document.getElementById('snap').innerHTML = "<img src='"+data_uri+"' style='height:100%;width:100%;'>";
 			});
 			}
 			function ShowCam(){
+				alert(window.screen.availWidth);
+				alert(window.screen.availHeight);
 				Webcam.set({
-				width: 720,
-				height: 540,
+				width: window.screen.availWidth,
+				height: window.screen.availHeight,
 				image_format: 'jpeg',
 				jpeg_quality: 100
 			});
@@ -55,26 +59,51 @@
 		</script>
 		<style type="text/css">
 		html,body{
-		height: 100%;width:100%;
+		height: 100%;width:100%;overflow:hidden;
 		}
 		*{
 		padding:0;margin:0; 
 		}
+		#overlay_frame{
+			position: absolute;
+			left:0px;
+			top:0px;
+			width:100vw;
+			height:100vh;
+			z-index: 6;
+		}
 		video {
 		object-fit:cover;
 		}
-		input{
+		#snap{
 			position: absolute;
-			top:0;
-			left:0;
-			z-index: 5;
+			left:0px;
+			top:0px;
+			width:100vw;
+			height:100vh;
+			background-size:cover;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+			z-index: 4;
 		}
-		.container{display:inline-block;width:320px;}
+		#button{
+			position: absolute;
+			bottom:20px;
+			left:0px;
+			z-index: 10;
+			width: 100%;
+			font-size: 30px;
+		}
 		#Cam{background:rgb(255,255,215);}#Prev{background:rgb(255,255,155);}#Saved{background:rgb(255,255,55);}
 		</style>
 	</head>
 	<body>
-			<div id="my_camera"></div><form><input type="button" value="Snap It" onClick="take_snapshot()"></form>
+			<img src="frame.png" id="overlay_frame">
+			<div id="my_camera"></div>
+			<div id="snap"></div>
+			<div id="button" class="text-center">
+				<input type="button" class="btn btn-large btn-primary" value="Capture Your Moment" onClick="take_snapshot()">
+			</div>
 
 	</body>
 </html>

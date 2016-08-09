@@ -34,12 +34,6 @@
 			}
 			function ShowCam(){
 
-
-				$("#start").hide();
-
-				// Launch fullscreen for browsers that support it!
-				launchIntoFullscreen(document.documentElement); // the whole page
-
 				Webcam.set({
 				width: $(window).width(),
 				height: $(window).width()*aspect_ratio,
@@ -80,23 +74,15 @@
 			}
 
 
+			$(document).ready(ShowCam);
 
-		$(document).ready(function(){ 
-			navigator.getUserMedia  = navigator.getUserMedia ||
-                          navigator.webkitGetUserMedia ||
-                          navigator.mozGetUserMedia ||
-                          navigator.msGetUserMedia;
+			function start(){
+				$("#start").hide();
 
-			var video = document.querySelector('video');
-
-			if (navigator.getUserMedia) {
-			  navigator.getUserMedia({audio: true, video: true}, function(stream) {
-			    video.src = window.URL.createObjectURL(stream);
-			  }, function(e){alert(e);});
-			} else {
-			  video.src = 'somevideo.webm'; // fallback.
+				// Launch fullscreen for browsers that support it!
+				launchIntoFullscreen(document.documentElement); // the whole page
 			}
-		 }); // get permission
+
 
 		</script>
 		<style type="text/css">
@@ -144,7 +130,7 @@
 			<div id="my_camera"></div>
 			<div id="snap"></div>
 			<div id="button" class="text-center">
-				<input type="button" class="btn btn-large btn-info" id="start" value="START" onclick="ShowCam();">
+				<input type="button" class="btn btn-large btn-info" id="start" value="START" onclick="start();">
 				<input type="button" class="btn btn-large btn-primary" value="Capture Your Moment" onclick="take_snapshot()">
 			</div>
 

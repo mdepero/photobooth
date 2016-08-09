@@ -14,8 +14,8 @@
 		
 		
 			function take_snapshot() {
-				alert("Test");
 				Webcam.snap(function(data_uri) {
+					alert("test");
 					document.getElementById('snap').style.backgroundImage = "url('"+data_uri+"')";
 				});
 			}

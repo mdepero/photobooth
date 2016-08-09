@@ -33,11 +33,13 @@
 				});
 			}
 			function ShowCam(){
-				// Find the right method, call on correct element
+
+
+				$("#start").hide();
 
 				// Launch fullscreen for browsers that support it!
 				launchIntoFullscreen(document.documentElement); // the whole page
-				
+
 				Webcam.set({
 				width: $(window).width(),
 				height: $(window).width()*aspect_ratio,
@@ -76,7 +78,6 @@
 				var image_return=event.target.responseText;
 				var showup=document.getElementById("uploaded").src=image_return;
 			}
-			window.onload= ShowCam;
 
 		</script>
 		<style type="text/css">
@@ -124,8 +125,11 @@
 			<div id="my_camera"></div>
 			<div id="snap"></div>
 			<div id="button" class="text-center">
-				<input type="button" class="btn btn-large btn-primary" value="Capture Your Moment" onClick="take_snapshot()">
+				<input type="button" class="btn btn-large btn-info" id="start" value="START" onclick="ShowCam();">
+				<input type="button" class="btn btn-large btn-primary" value="Capture Your Moment" onclick="take_snapshot()">
 			</div>
+
+
 
 	</body>
 </html>

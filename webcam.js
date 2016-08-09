@@ -146,6 +146,7 @@ var Webcam = {
 			// setup webcam video container
 			var video = document.createElement('video');
 			video.setAttribute('autoplay', 'autoplay');
+			video.id = "video_feed";
 			video.style.width = '' + this.params.dest_width + 'px';
 			video.style.height = '' + this.params.dest_height + 'px';
 			

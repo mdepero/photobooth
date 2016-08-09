@@ -67,9 +67,8 @@
 				//document.getElementById("loading").innerHTML="Saving, please wait...";
 				//var file =  document.getElementById("base64image").src;
 				var file = image_uri;
-				alert(image_uri);
 				$.ajax({
-					url: "upload.php",
+					url: remoteServerLocation,
 					type: "POST",
 					contentType: "text/plain",
 					data: file,

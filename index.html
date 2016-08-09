@@ -11,7 +11,7 @@
 		<script language="JavaScript">
 		
 		var remoteServerLocation = 'http://jshalk.com/photobooth/upload.php';
-		
+		var aspect_ratio = 1.0; // aspect ratio of the webcam
 		
 			function take_snapshot() {
 				Webcam.snap(function(data_uri) {
@@ -23,7 +23,7 @@
 			function ShowCam(){
 				Webcam.set({
 				width: $(window).width(),
-				height: $(window).height(),
+				height: $(window).width()*aspect_ratio,
 				dest_width: $(window).width(),
 				dest_heiht: $(window).height(),
 				crop_width: $(window).width(),
@@ -77,9 +77,9 @@
 			height:100vh;
 			z-index: 6;
 		}
-		videod {
+		/*video {
 		object-fit:cover;
-		}
+		}*/
 		#snap{
 			position: absolute;
 			left:0px;

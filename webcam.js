@@ -571,6 +571,10 @@ var Webcam = {
 			this.savePreview( user_callback, user_canvas );
 			return null;
 		}
+
+		// mdepero: trying to mask video overly aspect ratio issue
+		this.params.dest_width = this.width;
+		this.params.dest_height = this.height;
 		
 		// create offscreen canvas element to hold pixels
 		var canvas = document.createElement('canvas');

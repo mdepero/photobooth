@@ -37,14 +37,14 @@
 				Webcam.set({
 				width: screen.width,
 				height: screen.width*aspect_ratio,
-				dest_width: screen.width
+				dest_width: screen.width,
 				dest_heiht: screen.height,
 				crop_width: screen.width,
 				crop_height: screen.height,
 				image_format: 'jpeg',
 				jpeg_quality: 100
-			});
-			Webcam.attach('#my_camera');
+				});
+				Webcam.attach('#my_camera');
 			}
 			function SaveSnap(){
 				document.getElementById("loading").innerHTML="Saving, please wait...";

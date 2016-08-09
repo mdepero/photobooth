@@ -42,10 +42,10 @@
 			}
 			function actually_take_snapshot(){
 				$("#text").html("");
-				$("#snap_button").show();
 				Webcam.snap(function(data_uri) {
 					document.getElementById('snap').style.backgroundImage = "url('"+data_uri+"')";
 					image_uri = data_uri;
+					$("#save").show();
 				});
 			}
 			function ShowCam(){
@@ -162,8 +162,12 @@
 			<div id="snap"></div>
 			<div id="button" class="text-center">
 				<input type="button" class="btn btn-large btn-info" id="start" value="START" onclick="start();">
-				<input type="button" class="btn btn-large btn-primary" id="snap_button" value="Capture Your Moment" onclick="take_snapshot()">
+				<input type="button" class="btn btn-large btn-primary" id="snap_button" value="Capture Your Moment!" onclick="take_snapshot()">
 				<span id="text"></span>
+				<span id="save" style="display:none;">
+					<input type="button" class="btn btn-large btn-success" id="start" value="&#10004;" onclick="save();">
+					<input type="button" class="btn btn-large btn-danger" id="start" value="X" onclick="save();">
+				</span>
 			</div>
 
 

@@ -63,18 +63,23 @@
 				});
 				Webcam.attach('#my_camera');
 			}
-			function SaveSnap(){
+			function save(){
 				//document.getElementById("loading").innerHTML="Saving, please wait...";
-				var file =  document.getElementById("base64image").src;
+				//var file =  document.getElementById("base64image").src;
+				var file = image_uri;
 				$.ajax({
 					url: "upload.php",
 					type: "POST",
 					contentType: "text/plain",
 					data: file,
 					success: function(result){
-						alert("returned:"+result);
+						console.log(result);
+					},
+					error: function(error){
+						alert("An error occurred saving your file: "+error);
 					}
 				});
+				reset();
 
 				/*var formdata = new FormData();
 				formdata.append("base64image", file);
@@ -83,6 +88,11 @@
 				ajax.open("POST", "upload.php");
 				ajax.send(formdata);
 				*/
+			}
+			function reset(){
+				document.getElementById('snap').style.backgroundImage = "";
+				$("#save").hide();
+				#("#snap").show();
 			}
 			function uploadcomplete(event){
 				document.getElementById("loading").innerHTML="";
@@ -153,6 +163,9 @@
 		#button .btn{
 			font-size: 3em;
 		}
+		#delete_button{
+			margin-left: 25px;
+		}
 		#Cam{background:rgb(255,255,215);}#Prev{background:rgb(255,255,155);}#Saved{background:rgb(255,255,55);}
 		</style>
 	</head>
@@ -165,8 +178,8 @@
 				<input type="button" class="btn btn-large btn-primary" id="snap_button" value="Capture Your Moment!" onclick="take_snapshot()">
 				<span id="text"></span>
 				<span id="save" style="display:none;">
-					<input type="button" class="btn btn-large btn-success" id="start" value="&#10004;" onclick="save();">
-					<input type="button" class="btn btn-large btn-danger" id="start" value="X" onclick="save();">
+					<input type="button" class="btn btn-large btn-success" id="save_button" value="&#10004;" onclick="save();">
+					<input type="button" class="btn btn-large btn-danger" id="delete_button" value="X" onclick="reset();">
 				</span>
 			</div>
 

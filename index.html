@@ -24,6 +24,8 @@
 				Webcam.set({
 				width: $(window).width(),
 				height: $(window).height(),
+				dest_width: $(window).width(),
+				dest_heiht: $(window).height(),
 				crop_width: $(window).width(),
 				crop_height: $(window).height(),
 				image_format: 'jpeg',
@@ -75,7 +77,7 @@
 			height:100vh;
 			z-index: 6;
 		}
-		video {
+		videod {
 		object-fit:cover;
 		}
 		#snap{

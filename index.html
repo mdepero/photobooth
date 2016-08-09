@@ -15,6 +15,7 @@
 		
 			function take_snapshot() {
 				Webcam.snap(function(data_uri) {
+					alert($('video').style.backgroundSize);
 					alert(data_uri);
 					document.getElementById('snap').style.backgroundImage = "url('"+data_uri+"')";
 				});

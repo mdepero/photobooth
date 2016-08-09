@@ -573,8 +573,7 @@ var Webcam = {
 		}
 
 		// mdepero: trying to mask video overly aspect ratio issue
-		//this.params.dest_width = this.width;
-		//this.params.dest_height = this.height;
+		
 		
 		// create offscreen canvas element to hold pixels
 		var canvas = document.createElement('canvas');
@@ -592,7 +591,7 @@ var Webcam = {
 		var func = function() {
 			// render image if needed (flash)
 			if (this.src && this.width && this.height) {
-				context.drawImage(this, 0, 0, this.width, this.height);//params.dest_width, params.dest_height);
+				context.drawImage(this, 0, 0, params.dest_width, params.dest_height);
 			}
 			
 			// crop if desired

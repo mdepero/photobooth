@@ -35,12 +35,12 @@
 			function ShowCam(){
 
 				Webcam.set({
-				width: $(window).width(),
-				height: $(window).width()*aspect_ratio,
-				dest_width: $(window).width(),
-				dest_heiht: $(window).height(),
-				crop_width: $(window).width(),
-				crop_height: $(window).height(),
+				width: screen.width,
+				height: screen.width*aspect_ratio,
+				dest_width: screen.width
+				dest_heiht: screen.height,
+				crop_width: screen.width,
+				crop_height: screen.height,
 				image_format: 'jpeg',
 				jpeg_quality: 100
 			});

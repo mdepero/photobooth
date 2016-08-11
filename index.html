@@ -69,6 +69,7 @@
 			function ShowCam(){
 
 				window.addEventListener('keydown', keyPressed);
+				document.addEventListener("volumeupbutton", function(){alert("key pressed")}, false);
 
 				Webcam.set({
 				width: screen.width,

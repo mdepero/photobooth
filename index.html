@@ -16,13 +16,19 @@
 
 
 
-			function keyPressed(event){
+			function keyPressed(evt){
 				// take picture; event.which = 13
+				alert(evt.key);
 
-				// save picture; event.which = 48
-
-
-			    alert("Key: " + event.which);
+				// take picture; event.which = 48
+				if (evt.key === 'VolumeDown') {
+				    // process logic of volume-down
+				    alert("Vol Down Pressed")
+				  } else if (evt.key === 'VolumeUp') {
+				    // process logic of volume-up
+				    alert("vol up pressed")
+				  }
+				  evt.preventDefault(); // to stop system app from processing keydown event
 			}
 
 
@@ -62,7 +68,7 @@
 			}
 			function ShowCam(){
 
-				$(document).keypress(keyPressed);
+				window.addEventListener('keydown', keyPressed);
 
 				Webcam.set({
 				width: screen.width,

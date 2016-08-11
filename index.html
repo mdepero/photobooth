@@ -17,8 +17,6 @@
 
 
 			function keyPressed(evt){
-				// take picture; event.which = 13
-				alert(evt.key);
 
 				// take picture; event.which = 48
 				if (evt.key == 'Enter'){
@@ -92,7 +90,7 @@
 					contentType: "text/plain",
 					data: file,
 					success: function(result){
-						alert(result);
+						//alert(result);
 						console.log(result);
 					},
 					error: function(status){

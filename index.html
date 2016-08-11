@@ -50,6 +50,10 @@
 			}
 			function ShowCam(){
 
+				$(document).keydown(function(event){
+			        alert("Key: " + event.which);
+			    });
+
 				Webcam.set({
 				width: screen.width,
 				height: screen.width*aspect_ratio,

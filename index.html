@@ -21,19 +21,12 @@
 				alert(evt.key);
 
 				// take picture; event.which = 48
-				if (evt.key === 'VolumeDown') {
-				    // process logic of volume-down
-				    alert("Vol Down Pressed")
-				  } else if (evt.key === 'VolumeUp') {
-				    // process logic of volume-up
-				    alert("vol up pressed")
-				  }
-				  evt.preventDefault(); // to stop system app from processing keydown event
-			}
+				if (evt.key == 'Enter'){
 
-			function volChange(){
-				alert("vol pressed");
-				alert(document.getElementById("video_feed").volume);
+					take_snapshot();
+
+				}
+				   
 			}
 
 
@@ -198,11 +191,6 @@
 		</style>
 	</head>
 	<body>
-
-	<audio onvolumechange="volChange();" autoplay>
-  <source src="spoof.mp3" type="audio/mpeg">
-	  Your browser does not support the audio element.
-	</audio>
 
 			<img src="frame.png" id="overlay_frame">
 			<div id="my_camera"></div>

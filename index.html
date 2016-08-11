@@ -60,17 +60,10 @@
 					document.getElementById('snap').style.backgroundImage = "url('"+data_uri+"')";
 					image_uri = data_uri;
 					//$("#save").show();
-
+					
 					setTimeout(function(){
-						$("#text").html("2");
-						setTimeout(function(){
-							$("#text").html("1");
-							setTimeout(function(){
-								$("#text").html("");
-								save();
-							},1000)
-						},1000)
-					},1000)
+						save();
+					},3000)
 
 				});
 			}

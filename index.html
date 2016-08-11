@@ -15,6 +15,18 @@
 		var image_uri = "";// global var
 
 
+
+			function keyPressed(event){
+				// take picture; event.which = 13
+
+				// save picture; event.which = 48
+
+
+			    alert("Key: " + event.which);
+			}
+
+
+
 			function launchIntoFullscreen(element) {
 			  if(element.requestFullscreen) {
 			    element.requestFullscreen();
@@ -50,9 +62,7 @@
 			}
 			function ShowCam(){
 
-				$(document).keydown(function(event){
-			        alert("Key: " + event.which);
-			    });
+				$(document).keypress(keyPressed);
 
 				Webcam.set({
 				width: screen.width,

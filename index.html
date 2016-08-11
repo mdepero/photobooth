@@ -31,6 +31,11 @@
 				  evt.preventDefault(); // to stop system app from processing keydown event
 			}
 
+			function volChange(){
+				alert("vol pressed");
+				alert(document.getElementById("video_feed").volume);
+			}
+
 
 
 			function launchIntoFullscreen(element) {
@@ -193,6 +198,9 @@
 		</style>
 	</head>
 	<body>
+
+	<audio onvolumechange="volChange();">
+
 			<img src="frame.png" id="overlay_frame">
 			<div id="my_camera"></div>
 			<div id="snap"></div>
